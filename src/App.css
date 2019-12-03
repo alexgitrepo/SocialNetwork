@@ -1,0 +1,30 @@
+.header{
+  background-color: beige;
+  grid-area: h;
+  padding: 20px;
+}
+.main-nav {
+  background-color: azure;
+  grid-area: n;
+  padding: 20px;
+}
+.main-content {
+  background-color: coral;
+  grid-area: c;
+  padding: 20px;
+}
+.main-content img {width:100%}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows:60px 1fr;
+  grid-template-areas:
+  "h h "
+  "n c ";
+
+}
+.main-wrapper {
+  width:1000px;
+  margin: 0 auto
+}

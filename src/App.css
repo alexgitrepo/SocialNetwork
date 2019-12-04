@@ -1,19 +1,6 @@
-.header{
-  background-color: beige;
-  grid-area: h;
-  padding: 20px;
-}
-.main-nav {
-  background-color: azure;
-  grid-area: n;
-  padding: 20px;
-}
-.main-content {
-  background-color: coral;
-  grid-area: c;
-  padding: 20px;
-}
-.main-content img {width:100%}
+
+
+
 
 .grid-wrapper {
   display: grid;

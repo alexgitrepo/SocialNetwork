@@ -1,9 +1,10 @@
 import React from 'react';
+import style from './MainNav.module.css'
 
 const MainNav = () => {
     return (
 
-        <nav className="main-nav">
+        <nav className={style.mainNav}>
             <div><a href="#">Profile</a></div>
             <div><a href="#">Messages</a></div>
             <div><a href="#">News</a></div>

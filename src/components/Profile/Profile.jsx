@@ -1,7 +1,8 @@
 import React from 'react';
+import style from './Profile.module.css'
 const Profile = () => {
     return (
-        <main className="main-content">
+        <main className={style.mainContent}>
             <div className="main__image">
                 <img src="https://www.nastol.com.ua/download.php?img=201905/1600x900/nastol.com.ua-339637.jpg"
                      alt=""/>

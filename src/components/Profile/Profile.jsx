@@ -1,17 +1,12 @@
 import React from 'react';
 import style from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo.module";
 
 const Profile = () => {
     return (
         <main className={style.mainContent}>
-            <div>
-                <img className={style.mainImage} src="https://www.nastol.com.ua/download.php?img=201905/1600x900/nastol.com.ua-339637.jpg"
-                     alt=""/>
-            </div>
-            <div>
-                ava+descriprion
-            </div>
+           <ProfileInfo/>
             <MyPosts/>
         </main>
 

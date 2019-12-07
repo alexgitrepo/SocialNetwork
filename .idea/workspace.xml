@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainNav/MainNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainNav/MainNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialog/Dialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialog/Dialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialog/Dialog.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialog/Dialog.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dialogs/Message" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,11 +40,11 @@
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Message" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Settings" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Music" />
       <recent name="C:\projects\reactApp\reactsn\src\components\News" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\Post" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -82,7 +80,7 @@
       <workItem from="1575526535389" duration="44000" />
       <workItem from="1575630486836" duration="755000" />
       <workItem from="1575648485113" duration="3000" />
-      <workItem from="1575693897572" duration="5983000" />
+      <workItem from="1575693897572" duration="7003000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,17 @@
+.mainContent {
+    background-color: coral;
+    grid-area: c;
+    padding: 20px;
+}
+
+.mainContent img {
+    width: 100%
+}
+
+.textarea {
+    display: block
+}
+
+.buttonAdd {
+    margin-bottom: 10px;
+}

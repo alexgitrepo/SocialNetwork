@@ -1,5 +1,7 @@
 .header{
     background-color: beige;
     grid-area: h;
-    padding: 20px;
+
+
 }
+img {width:60px}

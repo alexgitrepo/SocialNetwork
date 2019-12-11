@@ -13,4 +13,15 @@ let state = {
         }]
     }
 }
-export  default  state
+window.state=state
+
+export let addPost = (postMessage) => {
+    let newPost = {id: 4, message: postMessage, count: '20'};
+    state.profilePage.myPostsData.push(newPost)
+}
+export let addMessage = (newMessage) => {
+    debugger
+    let newestMessage = {id: 4, message:newMessage};
+    state.dialogsPage.messageData.push(newestMessage)}
+
+    export default state

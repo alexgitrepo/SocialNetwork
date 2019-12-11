@@ -21,10 +21,10 @@ const App = (props) => {
                 <Header/>
                 <MainNav/>
                 <div className="app-wrapper-content">
-                    <Route render={() => <Profile state={props.state.profilePage}/>} path="/profile"/>
+                    <Route render={() => <Profile addPost ={props.addPost} state={props.state.profilePage}/>} path="/profile"/>
                 </div>
                 <div className="app-wrapper-content">
-                    <Route render={() => <Message state={props.state.dialogsPage}/>} path="/messages"/>
+                    <Route render={() => <Message addMessage={props.addMessage} state={props.state.dialogsPage}/>} path="/messages"/>
                 </div>
                 <div className="app-wrapper-content">
                     <Route component={News} path="/news"/>

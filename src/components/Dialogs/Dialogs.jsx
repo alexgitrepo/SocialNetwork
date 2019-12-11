@@ -10,7 +10,8 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef()
     let addMessage = ()=> {
         let messageText=newMessageElement.current.value;
-        props.addMessage(messageText)
+        props.addMessage(messageText);
+        newMessageElement.current.value=''
     }
     return (
         <main className={style.mainContent}>

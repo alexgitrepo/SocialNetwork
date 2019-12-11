@@ -5,7 +5,7 @@ let state = {
         myPostsData: [{id: 1, message: 'HI man. Give me your bag', count: '10'},
             {id: 2, message: 'What did you say? Crazy mother fucker!', count: '20'},
             {id: 3, message: 'Mm. Goodbye', count: '0'}],
-        newPostMessa
+
     },
     dialogsPage: {
         dialogsData: [{id: 1, name: 'Alex'}, {id: 2, name: 'Van\'ka'},

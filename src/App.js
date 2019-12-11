@@ -11,34 +11,33 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 
-
 const App = (props) => {
 
-       return (
-        <BrowserRouter>
-            <div className="main-wrapper">
-                <div className="grid-wrapper">
+    return (
 
-                    <Header/>
-                    <MainNav/>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <Profile state={props.state.profilePage}/>} path="/profile"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <Message state={props.state.dialogsPage} />} path="/messages"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={News} path="/news"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={Music} path="/music"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={Settings} path="/settings"/>
-                    </div>
+        <div className="main-wrapper">
+            <div className="grid-wrapper">
+
+                <Header/>
+                <MainNav/>
+                <div className="app-wrapper-content">
+                    <Route render={() => <Profile state={props.state.profilePage}/>} path="/profile"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route render={() => <Message state={props.state.dialogsPage}/>} path="/messages"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={News} path="/news"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={Music} path="/music"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={Settings} path="/settings"/>
                 </div>
             </div>
-        </BrowserRouter>)
+        </div>)
+
 }
 
 export default App;

@@ -12,7 +12,8 @@
 
 }
 .main-wrapper {
-  width:1000px;
-  margin: 0 auto
+  max-width:1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 .app-wrapper-content {grid-area:c}

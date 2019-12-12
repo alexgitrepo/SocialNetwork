@@ -13,9 +13,12 @@ let state = {
         messageData: [{id: 1, message: 'HI MAN'}, {id: 2, message: 'How are You??'}, {
             id: 3,
             message: 'I am fine Thanks'
-        }]
+        }],
+        newMessage:''
+
     }
 }
+window.state=state;
 
 export let updateNewPost = (newText) => {
     state.profilePage.newPostText = newText;
@@ -29,10 +32,15 @@ export let addPost = () => {
     state.profilePage.newPostText = '';
     rerenderEntireTree(state)
 }
-export let addMessage = (newMessage) => {
-    let newestMessage = {id: 4, message: newMessage};
-    state.dialogsPage.messageData.push(newestMessage)
-    rerenderEntireTree()
+export let updateNewMessage = (newText) => {
+    state.dialogsPage.newMessage = newText;
+        rerenderEntireTree(state)}
+
+export let addMessage = () => {
+    let newestMessage = {id: 4, message: state.dialogsPage.newMessage};
+    state.dialogsPage.messageData.push(newestMessage);
+    state.dialogsPage.newMessage = "";
+    rerenderEntireTree(state)
 }
 
 export default state

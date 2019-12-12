@@ -24,7 +24,7 @@ const App = (props) => {
                     <Route render={() => <Profile addPost ={props.addPost} state={props.state.profilePage} updateNewPost={props.updateNewPost}/>} path="/profile"/>
                 </div>
                 <div className="app-wrapper-content">
-                    <Route render={() => <Message addMessage={props.addMessage} state={props.state.dialogsPage}/>} path="/messages"/>
+                    <Route render={() => <Message addMessage={props.addMessage} updateNewMessage={props.updateNewMessage} state={props.state.dialogsPage}/>} path="/messages"/>
                 </div>
                 <div className="app-wrapper-content">
                     <Route component={News} path="/news"/>

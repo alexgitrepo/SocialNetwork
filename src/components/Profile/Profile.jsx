@@ -1,13 +1,13 @@
 import React from 'react';
 import style from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
-import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo.module";
+import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
     return (
         <main className={style.mainContent}>
             <ProfileInfo/>
-            <MyPosts addPost={props.addPost} myPostsData={props.state.myPostsData} newPostText={props.state.newPostText} updateNewPost={props.updateNewPost}/>
+            <MyPosts dispatch={props.dispatch} myPostsData={props.state.myPostsData} newPostText={props.state.newPostText} updateNewPost={props.updateNewPost}/>
         </main>
 
 

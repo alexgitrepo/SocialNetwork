@@ -3,17 +3,14 @@ import style from './MyPosts.module.css'
 import Post from "./Post/Post";
 import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/state";
 
-const MyPosts = (props) => {
+const MyPosts = (props) => {debugger
     let myPostDataElements = props.myPostsData.map(item => <Post message={item.message} count={item.count}/>)
-    let addPost = ()=> {
-        let text = newPostElement.current.value;
+    let addPost = () => {
         props.dispatch(addPostActionCreator());
-
-
     }
-    let newPostElement = React.createRef();
-    let onPostChange=()=>{
-        let text = newPostElement.current.value;
+
+    let onPostChange = (event) => {
+        let text = event.target.value;
         props.dispatch(updateNewPostActionCreator(text))
     }
     return (
@@ -22,8 +19,8 @@ const MyPosts = (props) => {
                 My Posts
             </div>
             <div>
-            <textarea onChange={onPostChange} ref={newPostElement} className={style.textarea}
-            value={props.newPostText}/>
+            <textarea onChange={onPostChange} className={style.textarea}
+                      value={props.newPostText}/>
             </div>
             <button onClick={addPost} className={style.buttonAdd}>Add post</button>
             {myPostDataElements}

@@ -1,3 +1,6 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST = "UPDATE_NEW_POST";
 const UPDATE_NEW_MESSAGE = "UPDATE_NEW_MESSAGE";
@@ -31,38 +34,24 @@ let store = {
     }
     ,
     subscribe(observer) {
-                this._callSubscriber = observer
+        this._callSubscriber = observer
     }
 
 
     ,
     dispatch(action) {
-        if (action.type === UPDATE_NEW_POST) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_POST) {
-            let newPost = {id: 4, message: this._state.profilePage.newPostText, count: '20'};
-            this._state.profilePage.myPostsData.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_NEW_MESSAGE) {
-            this._state.dialogsPage.newMessage = action.newText;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_MESSAGE) {
-            let newestMessage = {id: 4, message: this._state.dialogsPage.newMessage};
-            this._state.dialogsPage.messageData.push(newestMessage);
-            this._state.dialogsPage.newMessage = "";
-            this._callSubscriber(this._state)
-        }
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._callSubscriber(this._state)
     }
 }
- export let updateNewPostActionCreator = (text) => ({
+export let updateNewPostActionCreator = (text) => ({
     type: UPDATE_NEW_POST,
     newText: text
 });
 export let addPostActionCreator = () => ({type: ADD_POST})
-export let updateNewMessageActionCreator =(text)=> ({type:UPDATE_NEW_MESSAGE, newText: text})
-export let addMessageActionCreator =()=> ({type:ADD_MESSAGE})
+export let updateNewMessageActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE, newText: text})
+export let addMessageActionCreator = () => ({type: ADD_MESSAGE})
 window.store = store
 
 export default store

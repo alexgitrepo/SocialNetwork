@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.module.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
@@ -27,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,17 +37,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\redux" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Message" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Settings" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Music" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\News" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,7 +91,11 @@
       <workItem from="1576120878930" duration="10275000" />
       <workItem from="1576145087676" duration="620000" />
       <workItem from="1576232148792" duration="1395000" />
-      <workItem from="1576299827353" duration="7367000" />
+      <workItem from="1576299827353" duration="8440000" />
+      <workItem from="1576348880785" duration="2108000" />
+      <workItem from="1576391063733" duration="4478000" />
+      <workItem from="1576402142762" duration="1535000" />
+      <workItem from="1576412379739" duration="1426000" />
     </task>
     <servers />
   </component>

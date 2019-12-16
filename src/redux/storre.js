@@ -1,11 +1,11 @@
-import dialogsReducer from "./dialogs-reducer";
-import profileReducer from "./profile-reducer";
+// import dialogsReducer from "./dialogs-reducer";
+// import profileReducer from "./profile-reducer";
 
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST = "UPDATE_NEW_POST";
 const UPDATE_NEW_MESSAGE = "UPDATE_NEW_MESSAGE";
 const ADD_MESSAGE = "ADD_MESSAGE";
-let store = {
+let storre = {
     _state: {
         profilePage: {
             myPostsData: [{id: 1, message: 'HI man. Give me your bag', count: '10'},
@@ -45,13 +45,8 @@ let store = {
         this._callSubscriber(this._state)
     }
 }
-export let updateNewPostActionCreator = (text) => ({
-    type: UPDATE_NEW_POST,
-    newText: text
-});
-export let addPostActionCreator = () => ({type: ADD_POST})
-export let updateNewMessageActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE, newText: text})
-export let addMessageActionCreator = () => ({type: ADD_MESSAGE})
-window.store = store
 
-export default store
+
+window.store = storre
+
+export default storre

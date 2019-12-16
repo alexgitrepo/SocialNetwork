@@ -4,14 +4,13 @@ import Header from "./components/Header/Header";
 import MainNav from "./components/MainNav/MainNav";
 import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
-import Message from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
-
     return (
 
         <div className="main-wrapper">
@@ -20,10 +19,10 @@ const App = (props) => {
                 <Header/> 
                 <MainNav/>
                 <div className="app-wrapper-content">
-                    <Route render={() => <Profile dispatch ={props.dispatch} state={props.state.profilePage}/>} path="/profile"/>
+                    <Route render={() => <Profile store={props.store}/>} path="/profile"/>
                 </div>
                 <div className="app-wrapper-content">
-                    <Route render={() => <Message dispatch={props.dispatch} state={props.state.dialogsPage}/>} path="/messages"/>
+                    <Route render={() => <DialogsContainer store={props.store}/>} path="/messages"/>
                 </div>
                 <div className="app-wrapper-content">
                     <Route component={News} path="/news"/>

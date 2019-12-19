@@ -11,6 +11,7 @@ const MainNav = () => {
             <div><NavLink to="/news">News</NavLink></div>
             <div><NavLink to="/music">Music</NavLink></div>
             <div><NavLink to="/settings">Settings</NavLink></div>
+            <div><NavLink to="/users">Users</NavLink></div>
 
         </nav>
     );

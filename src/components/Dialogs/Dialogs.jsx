@@ -29,7 +29,7 @@ return (
                 {messageDataElements}
                 <div>
                     <textarea onChange={onChangeMessage} ref={newMessageElement} className={style.textarea}
-                             value={props.state.newMessage}/>
+                             value={props.dialogsPage.newMessage}/>
                 </div>
                 <button onClick={addMessage} className={style.buttonAdd}>Add message</button>
 

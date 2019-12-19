@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainNav/MainNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainNav/MainNav.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dialogs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users/User" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,18 +37,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts" />
-      <recent name="C:\projects\reactApp\reactsn\src\redux" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Message" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Dialogs" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
       <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\Users\User" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Users" />
+      <recent name="C:\projects\reactApp\reactsn\src\redux" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -103,7 +102,8 @@
       <workItem from="1576495497647" duration="3239000" />
       <workItem from="1576646823101" duration="1024000" />
       <workItem from="1576732873525" duration="1796000" />
-      <workItem from="1576734706287" duration="2038000" />
+      <workItem from="1576734706287" duration="2631000" />
+      <workItem from="1576743259492" duration="7011000" />
     </task>
     <servers />
   </component>

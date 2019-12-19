@@ -6,11 +6,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import store from "./redux/redux-store";
+import {Provider} from "react-redux";
 
 
 let rerenderEntireTree = (state) => {
-    ReactDOM.render(<BrowserRouter><App store={store}
-    /></BrowserRouter>, document.getElementById('root'));
+    ReactDOM.render(<BrowserRouter>
+        <Provider store={store}>
+        <App/>
+        </Provider>
+    </BrowserRouter>, document.getElementById('root'));
 }
 store.subscribe(() => {
     let state = store.getState();

@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-    let myPostDataElements = props.state.myPostsData.map(item => <Post message={item.message} count={item.count}/>)
+    let myPostDataElements = props.profilePage.myPostsData.map(item => <Post message={item.message} count={item.count}/>)
     let addPost = () => {
         props.addPostCallback();
     }
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
             </div>
             <div>
             <textarea onChange={onPostChange} className={style.textarea}
-                      value={props.state.newPostText}/>
+                      value={props.profilePage.newPostText}/>
             </div>
             <button onClick={addPost} className={style.buttonAdd}>Add post</button>
             {myPostDataElements}

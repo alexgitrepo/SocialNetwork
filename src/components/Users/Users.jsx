@@ -4,16 +4,13 @@ import * as axios from "axios";
 
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
+
+    componentDidMount() {
         axios.get('https://social-network.samuraijs.com/api/1.0/users?page=4').then(
             response => {
                 this.props.setUsersCallback(response.data.items)
-            }
-        );
+            })
     }
-
-
     render() {
         let myUsersDataElements = this.props.usersPage.users.map(item =>
             <User name={item.name}

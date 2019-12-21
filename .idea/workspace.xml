@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +100,8 @@
       <workItem from="1576734706287" duration="2631000" />
       <workItem from="1576743259492" duration="11194000" />
       <workItem from="1576905330640" duration="7981000" />
-      <workItem from="1576921867378" duration="4680000" />
+      <workItem from="1576921867378" duration="7793000" />
+      <workItem from="1576949543690" duration="410000" />
     </task>
     <servers />
   </component>

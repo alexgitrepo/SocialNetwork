@@ -1,30 +1,15 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
-
+const SET_USERS="SET_USERS"
 let initialState = {
-    users: [{
-        id: 1, ava: "", fullName: 'Alex', followed: true, satus: 'I amm THE KING OF REACT', location: {
-            country: "Russia", city: "Perm"
-        }
-    },
-        {
-            id: 2, ava: "", fullName: 'Dimych', followed: true, satus: 'It GURU', location: {
-                country: "Belarus", city: "Minsk"
-            }
-        },
-        {
-            id: 3, ava: "", fullName: 'Artem', followed: false, satus: 'It Valenok', location: {
-                country: "Belarus", city: "Minsk"
-            }
-        }
-    ]
+    users: []
 }
 
 
 let usersReducer = (state = initialState, action) => {
     if (action.type === FOLLOW) {
         return {
-            ...state, ...state.users.map((item) => {
+            ...state, users: state.users.map((item) => {
                 if (item.id === action.userId) {
                     item.followed = true
                 }
@@ -32,16 +17,22 @@ let usersReducer = (state = initialState, action) => {
         }
     } else if (action.type === UNFOLLOW) {
         return {
-            ...state, ...state.users.map((item) => {
+            ...state, users:state.users.map((item) => {
                 if (item.id === action.userId) {
                     item.followed = false
                 }
             })
         }
     }
+    else if (action.type === SET_USERS) {
+        return {
+        ...state,users:[...action.users]
+        }
+    }
     return state
 }
 export let followUserActionCreator = (id) => ({type: FOLLOW, userId: id})
 export let unfollowUserActionCreator = (id) => ({type: UNFOLLOW, userId: id})
+export let setUsersActionCreator=(users)=>({type: SET_USERS, users:users})
 
 export default usersReducer

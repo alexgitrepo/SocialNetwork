@@ -11,11 +11,15 @@ let initialState = {dialogsData: [{id: 1, name: 'Alex'}, {id: 2, name: 'Van\'ka'
 let dialogsReducer=(state=initialState, action)=> {
         if (action.type === ADD_MESSAGE) {
             let newestMessage = {id: 4, message: state.newMessage};
-            state.messageData.push(newestMessage);
-            state.newMessage = "";
+            return{
+                ...state,messageData: [...state.messageData, newestMessage], newMessage: ''
+            }
+            // state.messageData.push(newestMessage);
+            // state.newMessage = "";
                     }
         else if (action.type === UPDATE_NEW_MESSAGE) {
-            state.newMessage = action.newText;
+            return{...state,newMessage:action.newText}
+            // state.newMessage = action.newText;
         }
     return state
     }

@@ -3,29 +3,36 @@ import User from "./User/User";
 import * as axios from "axios";
 
 
-const Users = (props) => {
-    if (props.usersPage.users.length === 0){
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
         axios.get('https://social-network.samuraijs.com/api/1.0/users?page=4').then(
-            response=>{props.setUsersCallback(response.data.items)}
-        )
+            response => {
+                this.props.setUsersCallback(response.data.items)
+            }
+        );
     }
 
-    let myUsersDataElements = props.usersPage.users.map(item =>
-        <User name={item.name}
-              country={"item.location.country"}
-              userId={item.id}
-              city={"item.location.city"} isFollowed={item.followed} img={item.photos}
-              followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
-    />)
+
+    render() {
+        let myUsersDataElements = this.props.usersPage.users.map(item =>
+            <User name={item.name}
+                  country={"item.location.country"}
+                  userId={item.id}
+                  city={"item.location.city"} isFollowed={item.followed} img={item.photos}
+                  followCallback={this.props.followCallback} unfollowCallback={this.props.unfollowCallback}
+            />)
 
 
+        return (
 
-    return (
+            <div>
+                {myUsersDataElements}
+            </div>
+        );
+    }
 
-        <div>
-            {myUsersDataElements}
-        </div>
-    );
+
 }
 
 export default Users;

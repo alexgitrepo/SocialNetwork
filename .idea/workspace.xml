@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/User/User.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/User/User.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +21,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users/User" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -33,18 +32,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\Users" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Users\User" />
+      <recent name="C:\projects\reactApp\reactsn\src\redux" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Dialogs" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
       <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Users\User" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Users" />
-      <recent name="C:\projects\reactApp\reactsn\src\redux" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -101,7 +100,7 @@
       <workItem from="1576734706287" duration="2631000" />
       <workItem from="1576743259492" duration="11194000" />
       <workItem from="1576905330640" duration="7981000" />
-      <workItem from="1576921867378" duration="2718000" />
+      <workItem from="1576921867378" duration="4680000" />
     </task>
     <servers />
   </component>

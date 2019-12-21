@@ -12,7 +12,7 @@ let mapDispatchToProps=(dispatch)=>{
         followCallback:(id)=>{
             dispatch(followUserActionCreator(id))
         },
-        unfollofCallback:(id)=>{
+        unfollowCallback:(id)=>{
             dispatch(unfollowUserActionCreator(id))
                     },
         setUsersCallback:(users)=>{

@@ -1,32 +1,24 @@
 import React from 'react';
 import User from "./User/User";
+import * as axios from "axios";
 
 
-const Users = (props) => { debugger
+const Users = (props) => {
+    if (props.usersPage.users.length === 0){
+        axios.get('https://social-network.samuraijs.com/api/1.0/users?page=15').then(
+            response=>{props.setUsersCallback(response.data.items)}
+        )
+    }
+
     let myUsersDataElements = props.usersPage.users.map(item =>
-        <User name={item.fullName}
-              country={item.location.country}
+        <User name={item.name}
+              country={"item.location.country"}
               userId={item.id}
-              city={item.location.city} isFollowed={item.followed} img={item.ava}
-              followCallback={props.followCallback} unfollofCallback={props.unfollofCallback}
+              city={"item.location.city"} isFollowed={item.followed} img={item.ava}
+              followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
     />)
-let users=[{
-    id: 1, ava: "", fullName: 'Alex', followed: true, satus: 'I amm THE KING OF REACT', location: {
-        country: "Russia", city: "Perm"
-    }
-},
-    {
-        id: 2, ava: "", fullName: 'Dimych', followed: true, satus: 'It GURU', location: {
-            country: "Belarus", city: "Minsk"
-        }
-    },
-    {
-        id: 3, ava: "", fullName: 'Artem', followed: false, satus: 'It Valenok', location: {
-            country: "Belarus", city: "Minsk"
-        }
-    }
-]
-    if (props.usersPage.users.length === 0){props.setUsersCallback(users)}
+
+
 
     return (
 

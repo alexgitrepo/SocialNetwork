@@ -7,7 +7,7 @@ const User = (props) => {
         props.followCallback(props.userId)
     }
     let unfollow = () => {
-        props.unfollofCallback(props.userId)
+        props.unfollowCallback(props.userId)
     }
 
     return (

@@ -28,7 +28,7 @@ class Users extends React.Component {
 
     render() {
         let pages = [];
-        if (this.props.usersPage.pagesOnScreenTo < this.props.usersPage.totalPages) {
+        if (this.props.usersPage.pagesOnScreenTo-4 < this.props.usersPage.totalPages) {
             for (let i = this.props.usersPage.pagesOnScreenFrom; i <= this.props.usersPage.pagesOnScreenTo; i++) {
                 pages.push(i)
             }

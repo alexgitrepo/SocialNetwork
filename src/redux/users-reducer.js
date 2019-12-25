@@ -91,15 +91,15 @@ let usersReducer = (state = initialState, action) => {
 
     return state
 }
-export let followUserActionCreator = (id) => ({type: FOLLOW, userId: id})
-export let unfollowUserActionCreator = (id) => ({type: UNFOLLOW, userId: id})
-export let setUsersActionCreator = (users) => ({type: SET_USERS, users: users})
-export let setTotalUsersActionCreator = (count) => ({type: SET_TOTAL_USERS, count: count})
-export let setCurrentPageActionCreator = (page) => ({type: SET_CURRENT_PAGE, page: page})
-export let setTotalPagesActionCreator = () => ({type: SET_TOTAL_PAGES})
-export let setPagesOnScreenNextActionCreator = () => ({type: SET_PAGES_ON_SCREEN_NEXT})
-export let setPagesOnScreenPrevActionCreator = () => ({type: SET_PAGES_ON_SCREEN_PREV})
-export let changeIsFetchingActionCreator = () => ({type: IS_FETCHING_CHANGE})
+export let followCallback = (id) => ({type: FOLLOW, userId: id})
+export let unfollowCallback = (id) => ({type: UNFOLLOW, userId: id})
+export let setUsersCallback = (users) => ({type: SET_USERS, users: users})
+export let setTotalUsersCallback = (count) => ({type: SET_TOTAL_USERS, count: count})
+export let setCurrentPageCallback = (page) => ({type: SET_CURRENT_PAGE, page: page})
+export let setTotalPagesCallback = () => ({type: SET_TOTAL_PAGES})
+export let setPagesOnScreenNextCallback = () => ({type: SET_PAGES_ON_SCREEN_NEXT})
+export let setPagesOnScreenPrevCallback = () => ({type: SET_PAGES_ON_SCREEN_PREV})
+export let changeIsFetchingCallback = () => ({type: IS_FETCHING_CHANGE})
 
 
 export default usersReducer

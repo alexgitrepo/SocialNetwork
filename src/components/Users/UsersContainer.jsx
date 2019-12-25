@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    changeIsFetchingActionCreator,
-    followUserActionCreator,
-    setCurrentPageActionCreator,
-    setPagesOnScreenNextActionCreator,
-    setPagesOnScreenPrevActionCreator,
-    setTotalPagesActionCreator,
-    setTotalUsersActionCreator,
-    setUsersActionCreator,
-    unfollowUserActionCreator
+    changeIsFetchingCallback,
+    followCallback,
+    setCurrentPageCallback,
+    setPagesOnScreenNextCallback,
+    setPagesOnScreenPrevCallback,
+    setTotalPagesCallback,
+    setTotalUsersCallback,
+    setUsersCallback,
+    unfollowCallback
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import * as axios from "axios";
@@ -19,41 +19,7 @@ let mapStateToProps = (state) => {
     return {usersPage: state.UsersPage}
 
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        followCallback: (id) => {
-            dispatch(followUserActionCreator(id))
-        },
-        unfollowCallback: (id) => {
-            dispatch(unfollowUserActionCreator(id))
-        },
-        setUsersCallback: (users) => {
-            dispatch(setUsersActionCreator(users))
 
-        },
-        setTotalUsersCallback: (count) => {
-            dispatch(setTotalUsersActionCreator(count))
-        },
-        setCurrentPageCallback: (page) => {
-            dispatch(setCurrentPageActionCreator(page))
-        },
-        setTotalPagesCallback: () => {
-            dispatch(setTotalPagesActionCreator())
-        },
-        setPagesOnScreenNextCallback: () => {
-            dispatch(setPagesOnScreenNextActionCreator())
-        },
-        setPagesOnScreenPrevCallback: () => {
-            dispatch(setPagesOnScreenPrevActionCreator())
-        },
-        changeIsFetchingCallback: () => {
-            dispatch(changeIsFetchingActionCreator())
-        }
-
-    }
-
-
-}
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -81,10 +47,10 @@ class UsersContainer extends React.Component {
 
 
     render() {
-                return (
+        return (
             <div>
 
-                {this.props.usersPage.isFetching? <Preloader/> :null}
+                {this.props.usersPage.isFetching ? <Preloader/> : null}
                 <Users getNewUsers={this.getNewUsers} usersPage={this.props.usersPage}
                        setPagesOnScreenNextCallback={this.props.setPagesOnScreenNextCallback}
                        setPagesOnScreenPrevCallback={this.props.setPagesOnScreenPrevCallback}/>
@@ -97,4 +63,7 @@ class UsersContainer extends React.Component {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+    followCallback, unfollowCallback, setUsersCallback, setTotalUsersCallback, setCurrentPageCallback,
+    setTotalPagesCallback, setPagesOnScreenNextCallback, setPagesOnScreenPrevCallback, changeIsFetchingCallback
+})(UsersContainer)

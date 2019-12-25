@@ -5,7 +5,8 @@ const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
 const SET_PAGES_ON_SCREEN_NEXT = 'SET_PAGES_ON_SCREEN_NEXT'
-const SET_PAGES_ON_SCREEN_PREV='SET_PAGES_ON_SCREEN_PREV'
+const SET_PAGES_ON_SCREEN_PREV = 'SET_PAGES_ON_SCREEN_PREV'
+const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE'
 let initialState = {
     users: [],
     totalUsers: 0,
@@ -13,7 +14,8 @@ let initialState = {
     usersPerPage: 7,
     totalPages: 1,
     pagesOnScreenTo: 5,
-    pagesOnScreenFrom: 1
+    pagesOnScreenFrom: 1,
+    isFetching: false
 }
 
 
@@ -64,16 +66,25 @@ let usersReducer = (state = initialState, action) => {
         }
     } else if (action.type === SET_PAGES_ON_SCREEN_NEXT) {
         let pagesCountFrom = state.pagesOnScreenFrom += 5
-        let pagesCountTo=state.pagesOnScreenTo+=5
+        let pagesCountTo = state.pagesOnScreenTo += 5
         return {
-            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo:pagesCountTo
+            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
         }
-    }
-    else if (action.type === SET_PAGES_ON_SCREEN_PREV) {
+    } else if (action.type === SET_PAGES_ON_SCREEN_PREV) {
         let pagesCountFrom = state.pagesOnScreenFrom -= 5
-        let pagesCountTo=state.pagesOnScreenTo-=5
+        let pagesCountTo = state.pagesOnScreenTo -= 5
         return {
-            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo:pagesCountTo
+            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
+        }
+    } else if (action.type === IS_FETCHING_CHANGE) {
+        if (state.isFetching) {
+            return {
+                ...state, isFetching: false
+            }
+        } else {
+            return {
+                ...state, isFetching: true
+            }
         }
     }
 
@@ -88,7 +99,7 @@ export let setCurrentPageActionCreator = (page) => ({type: SET_CURRENT_PAGE, pag
 export let setTotalPagesActionCreator = () => ({type: SET_TOTAL_PAGES})
 export let setPagesOnScreenNextActionCreator = () => ({type: SET_PAGES_ON_SCREEN_NEXT})
 export let setPagesOnScreenPrevActionCreator = () => ({type: SET_PAGES_ON_SCREEN_PREV})
-
+export let changeIsFetchingActionCreator = () => ({type: IS_FETCHING_CHANGE})
 
 
 export default usersReducer

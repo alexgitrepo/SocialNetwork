@@ -14,8 +14,6 @@ let initialState = {
     totalPages: 1,
     pagesOnScreenTo: 5,
     pagesOnScreenFrom: 1
-
-
 }
 
 

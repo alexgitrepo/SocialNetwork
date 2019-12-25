@@ -1,6 +1,7 @@
 import React from 'react';
 import userPhoto from"../../../assets/images/user.png"
 import style from './User.module.css'
+import {NavLink} from "react-router-dom";
 const User = (props) => {
 
     let follow = () => {
@@ -16,7 +17,10 @@ const User = (props) => {
                 {props.name}
             </div>
             <div>
-                <img src={props.img.small===null ? userPhoto: props.img.small } className={style.userPhoto} alt='Тут ава будет'/>
+                <NavLink to={'/profile/'+props.userId}>
+
+                    <img src={props.img.small===null ? userPhoto: props.img.small } className={style.userPhoto} alt='Тут ава будет'/>
+                </NavLink>
             </div>
             <div>
                 {props.country}

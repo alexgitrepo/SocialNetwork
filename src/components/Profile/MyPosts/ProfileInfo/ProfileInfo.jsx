@@ -3,7 +3,7 @@ import style from './Profile.module.css'
 import Preloader from "../../../common/Preloader";
 
 
-const ProfileInfo = (props) => {
+const ProfileInfo = (props) => {debugger
     if (!props.profilePage.currentUser) {return <Preloader/>}
     else
     return (
@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={style.descriptionBlock}>
 
-                <img src={props.profilePage.currentUser.photos.large}/>
+                <img className={style.ava} src={props.profilePage.currentUser.photos.large}/>
 
                 <h3>ava+descriprion</h3>
             </div>

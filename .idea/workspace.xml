@@ -4,7 +4,10 @@
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/Profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/Profile.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Header" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -33,18 +36,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
+      <recent name="C:\projects\reactApp\reactsn\src\redux" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\common" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Users" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Dialogs" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
       <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\common" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Users" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Users\User" />
-      <recent name="C:\projects\reactApp\reactsn\src\redux" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -106,7 +109,13 @@
       <workItem from="1576993544288" duration="13054000" />
       <workItem from="1577037884473" duration="1363000" />
       <workItem from="1577076978109" duration="5973000" />
-      <workItem from="1577251800433" duration="15074000" />
+      <workItem from="1577251800433" duration="15533000" />
+      <workItem from="1577345444875" duration="614000" />
+      <workItem from="1577444909036" duration="623000" />
+      <workItem from="1577451107163" duration="70000" />
+      <workItem from="1577537535369" duration="1888000" />
+      <workItem from="1577624278494" duration="2634000" />
+      <workItem from="1577627825644" duration="6644000" />
     </task>
     <servers />
   </component>

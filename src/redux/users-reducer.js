@@ -31,7 +31,7 @@ let usersReducer = (state = initialState, action) => {
                 }
             )
         }
-    } else if (action.type === UNFOLLOW) {
+    } else if (action.type === UNFOLLOW) {debugger
         return {
             ...state, users: state.users.map((item) => {
                 if (item.id === action.userId) {

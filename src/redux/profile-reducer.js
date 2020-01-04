@@ -1,3 +1,5 @@
+import {usersAPI} from "../API/api";
+
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST = "UPDATE_NEW_POST";
 const SET_CURRENT_USER='SET_CURRENT_USER'
@@ -28,5 +30,10 @@ export let updateNewPostActionCreator = (text) => ({
 });
 export let addPostActionCreator = () => ({type: ADD_POST})
 export let setCurrentUserCallback=(currentUser)=>({type:SET_CURRENT_USER,currentUser })
+export let setCurrentUserThunkCreator=(userId)=> (dispatch)=>{
+    usersAPI.ShowCurrentUser(userId).then(
+        (response) => {
+           dispatch(setCurrentUserCallback(response.data))
 
+        })}
 export default profileReducer

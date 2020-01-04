@@ -3,7 +3,7 @@ import Profile from "./Profile";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setCurrentUserCallback, setCurrentUserThunkCreator} from "../../redux/profile-reducer";
-import {withRouter} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 import {usersAPI} from "../../API/api";
 
 class ProfileContainer extends React.Component {
@@ -14,15 +14,17 @@ class ProfileContainer extends React.Component {
     }
 
      render() {
-        return (
+                return (<div>
+            {!this.props.isAuth && <Redirect to='/login'/>}
             <Profile profilePage={this.props.profilePage}/>
-
+            </div>
 
         );
     }
 }
 let mapStateToProps =(state)=>{
-    return {profilePage:state.profilePage}
+    return {profilePage:state.profilePage,
+    isAuth:state.auth.userInfo.isLogin}
 }
 
 let WithUrlDataContainerComponent= withRouter(ProfileContainer)

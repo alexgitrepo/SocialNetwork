@@ -1,9 +1,6 @@
 import React from 'react';
 import User from "./User/User";
-import * as axios from "axios";
-import {pureFinalPropsSelectorFactory} from "react-redux/lib/connect/selectorFactory";
 import style from './Users.module.css'
-import {changeIsisFollowingInProcess} from "../../redux/users-reducer";
 
 
 const Users = (props) => {
@@ -13,7 +10,7 @@ const Users = (props) => {
         props.setPagesOnScreenNextCallback();
     }
     let showPrevUsers = () => {
-       props.setPagesOnScreenPrevCallback()
+        props.setPagesOnScreenPrevCallback()
 
     }
     let pages = [];
@@ -56,7 +53,8 @@ const Users = (props) => {
               city={"item.location.city"} isFollowed={item.followed} img={item.photos}
               followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
               isFollowingInProcessUsers={props.isFollowingInProcessUsers}
-              changeIsisFollowingInProcess={props.changeIsisFollowingInProcess}
+              followUser={props.followUser}
+              unfollowUser={props.unfollowUser}
         />)
 
 

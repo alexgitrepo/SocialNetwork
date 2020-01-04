@@ -1,20 +1,22 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    changeIsFetchingCallback, changeIsisFollowingInProcess,
+    changeIsFetchingCallback,
+    changeIsisFollowingInProcess,
     followCallback,
+    followUserThunkCreator,
+    getUsersThunkCreator,
     setCurrentPageCallback,
     setPagesOnScreenNextCallback,
     setPagesOnScreenPrevCallback,
     setTotalPagesCallback,
     setTotalUsersCallback,
     setUsersCallback,
-    unfollowCallback
+    unfollowCallback,
+    unfollowUserThunkCreator
 } from "../../redux/users-reducer";
 import Users from "./Users";
-import * as axios from "axios";
 import Preloader from "../common/Preloader";
-import {usersAPI} from "../../API/api";
 
 let mapStateToProps = (state) => {
     return {usersPage: state.UsersPage}
@@ -25,24 +27,12 @@ let mapStateToProps = (state) => {
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.changeIsFetchingCallback();
-
-        usersAPI.getUsers(1, this.props.usersPage.usersPerPage).then((response) => {
-            this.props.setUsersCallback(response.data.items);
-            this.props.setTotalUsersCallback(response.data.totalCount);
-            this.props.setTotalPagesCallback()
-            this.props.changeIsFetchingCallback()
-        })
+        this.props.getUsers(this.props.usersPage.currentPage, this.props.usersPage.usersPerPage)
     }
 
     getNewUsers = (item) => {
         this.props.changeIsFetchingCallback()
-        usersAPI.getUsers(item, this.props.usersPage.usersPerPage).then(
-            (response) => {
-                this.props.setUsersCallback(response.data.items);
-                this.props.setCurrentPageCallback(item)
-                this.props.changeIsFetchingCallback()
-
-            })
+        this.props.getUsers(item, this.props.usersPage.usersPerPage)
     }
 
 
@@ -54,9 +44,9 @@ class UsersContainer extends React.Component {
                 <Users getNewUsers={this.getNewUsers} usersPage={this.props.usersPage}
                        setPagesOnScreenNextCallback={this.props.setPagesOnScreenNextCallback}
                        setPagesOnScreenPrevCallback={this.props.setPagesOnScreenPrevCallback}
-                       followCallback={this.props.followCallback} unfollowCallback={this.props.unfollowCallback}
                        isFollowingInProcessUsers={this.props.usersPage.isFollowingInProcessUsers}
-                       changeIsisFollowingInProcess={this.props.changeIsisFollowingInProcess}/>
+                       followUser={this.props.followUser}
+                       unfollowUser={this.props.unfollowUser}/>
             </div>
         )
 
@@ -67,6 +57,15 @@ class UsersContainer extends React.Component {
 
 
 export default connect(mapStateToProps, {
-    followCallback, unfollowCallback, setUsersCallback, setTotalUsersCallback, setCurrentPageCallback,
-    setTotalPagesCallback, changeIsisFollowingInProcess,setPagesOnScreenNextCallback, setPagesOnScreenPrevCallback, changeIsFetchingCallback
+    setUsersCallback,
+    setTotalUsersCallback,
+    setCurrentPageCallback,
+    setTotalPagesCallback,
+    changeIsisFollowingInProcess,
+    setPagesOnScreenNextCallback,
+    setPagesOnScreenPrevCallback,
+    changeIsFetchingCallback,
+    getUsers: getUsersThunkCreator,
+    followUser: followUserThunkCreator,
+    unfollowUser: unfollowUserThunkCreator
 })(UsersContainer)

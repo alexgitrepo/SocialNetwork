@@ -7,6 +7,7 @@ const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
 const SET_PAGES_ON_SCREEN_NEXT = 'SET_PAGES_ON_SCREEN_NEXT'
 const SET_PAGES_ON_SCREEN_PREV = 'SET_PAGES_ON_SCREEN_PREV'
 const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE'
+const IS_FOLLOWING_IN_PROCESS = 'IS_FOLLOWING_IN_PROCESS'
 let initialState = {
     users: [],
     totalUsers: 0,
@@ -15,7 +16,9 @@ let initialState = {
     totalPages: 1,
     pagesOnScreenTo: 5,
     pagesOnScreenFrom: 1,
-    isFetching: false
+    isFetching: false,
+    isFollowingInProcess: false,
+    isFollowingInProcessUsers: []
 }
 
 
@@ -31,7 +34,7 @@ let usersReducer = (state = initialState, action) => {
                 }
             )
         }
-    } else if (action.type === UNFOLLOW) {debugger
+    } else if (action.type === UNFOLLOW) {
         return {
             ...state, users: state.users.map((item) => {
                 if (item.id === action.userId) {
@@ -81,16 +84,24 @@ let usersReducer = (state = initialState, action) => {
             return {
                 ...state, isFetching: false
             }
-        } else {
-            return {
-                ...state, isFetching: true
-            }
+        }
+
+    } else if (action.type === IS_FOLLOWING_IN_PROCESS) {debugger
+        if (state.isFollowingInProcessUsers.some((item)=>item===action.userId))
+        { return{...state, isFollowingInProcessUsers:
+                [state.isFollowingInProcessUsers.filter((item)=>item!==action.userId)]}}
+       else return {
+            ...state, isFollowingInProcessUsers: [...state.isFollowingInProcessUsers, action.userId]
+        }
+
+    } else {
+        return {
+            ...state, isFetching: true
         }
     }
-
-
     return state
 }
+
 export let followCallback = (id) => ({type: FOLLOW, userId: id})
 export let unfollowCallback = (id) => ({type: UNFOLLOW, userId: id})
 export let setUsersCallback = (users) => ({type: SET_USERS, users: users})
@@ -100,6 +111,7 @@ export let setTotalPagesCallback = () => ({type: SET_TOTAL_PAGES})
 export let setPagesOnScreenNextCallback = () => ({type: SET_PAGES_ON_SCREEN_NEXT})
 export let setPagesOnScreenPrevCallback = () => ({type: SET_PAGES_ON_SCREEN_PREV})
 export let changeIsFetchingCallback = () => ({type: IS_FETCHING_CHANGE})
+export let changeIsisFollowingInProcess = (userId) => ({type: IS_FOLLOWING_IN_PROCESS, userId})
 
 
 export default usersReducer

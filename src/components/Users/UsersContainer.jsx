@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    changeIsFetchingCallback,
+    changeIsFetchingCallback, changeIsisFollowingInProcess,
     followCallback,
     setCurrentPageCallback,
     setPagesOnScreenNextCallback,
@@ -54,7 +54,9 @@ class UsersContainer extends React.Component {
                 <Users getNewUsers={this.getNewUsers} usersPage={this.props.usersPage}
                        setPagesOnScreenNextCallback={this.props.setPagesOnScreenNextCallback}
                        setPagesOnScreenPrevCallback={this.props.setPagesOnScreenPrevCallback}
-                       followCallback={this.props.followCallback} unfollowCallback={this.props.unfollowCallback}/>
+                       followCallback={this.props.followCallback} unfollowCallback={this.props.unfollowCallback}
+                       isFollowingInProcessUsers={this.props.usersPage.isFollowingInProcessUsers}
+                       changeIsisFollowingInProcess={this.props.changeIsisFollowingInProcess}/>
             </div>
         )
 
@@ -66,5 +68,5 @@ class UsersContainer extends React.Component {
 
 export default connect(mapStateToProps, {
     followCallback, unfollowCallback, setUsersCallback, setTotalUsersCallback, setCurrentPageCallback,
-    setTotalPagesCallback, setPagesOnScreenNextCallback, setPagesOnScreenPrevCallback, changeIsFetchingCallback
+    setTotalPagesCallback, changeIsisFollowingInProcess,setPagesOnScreenNextCallback, setPagesOnScreenPrevCallback, changeIsFetchingCallback
 })(UsersContainer)

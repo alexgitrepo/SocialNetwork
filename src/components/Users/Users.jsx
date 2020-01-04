@@ -3,6 +3,7 @@ import User from "./User/User";
 import * as axios from "axios";
 import {pureFinalPropsSelectorFactory} from "react-redux/lib/connect/selectorFactory";
 import style from './Users.module.css'
+import {changeIsisFollowingInProcess} from "../../redux/users-reducer";
 
 
 const Users = (props) => {
@@ -54,6 +55,8 @@ const Users = (props) => {
               userId={item.id}
               city={"item.location.city"} isFollowed={item.followed} img={item.photos}
               followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
+              isFollowingInProcessUsers={props.isFollowingInProcessUsers}
+              changeIsisFollowingInProcess={props.changeIsisFollowingInProcess}
         />)
 
 

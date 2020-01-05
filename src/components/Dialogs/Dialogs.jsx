@@ -20,8 +20,7 @@ const Dialogs = (props) => {
         props.onChangeMessageCallback(newMessageText)
     }
 
-return (<>
-        {!props.isAuth && <Redirect to='/login'/>}
+return (
     <main className={style.mainContent}>
         <div className={style.mainContentWrapper}>
             <section className={style.dialogs}>
@@ -39,7 +38,7 @@ return (<>
 
         </div>
     </main>
-</>
+
 
 );
 }

@@ -21,12 +21,12 @@ let authReducer = (state = initialState, action) => {
 }
 
 
-export const setLoginUserDtataActionCreator = (userData) => ({type: AUTH_USER, userData:userData})
+export const setLoginUserDataActionCreator = (userData) => ({type: AUTH_USER, userData:userData})
 export const  getAuthStatusThunkCreator=()=>(dispatch)=>{
     authAPI.getAuthStatus().then(
         (response) => {
             if (response.data.resultCode===0){
-                dispatch(setLoginUserDtataActionCreator(response.data.data))}
+                dispatch(setLoginUserDataActionCreator(response.data.data))}
         })}
 
 export default authReducer

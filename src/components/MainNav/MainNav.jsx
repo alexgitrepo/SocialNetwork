@@ -12,6 +12,7 @@ const MainNav = () => {
             <div><NavLink to="/music">Music</NavLink></div>
             <div><NavLink to="/settings">Settings</NavLink></div>
             <div><NavLink to="/users">Users</NavLink></div>
+            <div><NavLink to="/login">login</NavLink></div>
 
         </nav>
     );

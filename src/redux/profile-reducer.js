@@ -20,7 +20,7 @@ let profileReducer = (state = initialState, action) => {
     } else if (action.type === SET_CURRENT_USER) {
         return {...state, currentUser: action.currentUser}
     } else if (action.type === SET_STATUS) {
-        debugger
+
         return {...state, status: action.status}
     }
     return state

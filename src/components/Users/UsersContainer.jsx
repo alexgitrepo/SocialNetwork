@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {
     changeIsFetchingCallback,
     changeIsisFollowingInProcess,
-    followCallback,
     followUserThunkCreator,
     getUsersThunkCreator,
     setCurrentPageCallback,
@@ -12,7 +11,6 @@ import {
     setTotalPagesCallback,
     setTotalUsersCallback,
     setUsersCallback,
-    unfollowCallback,
     unfollowUserThunkCreator
 } from "../../redux/users-reducer";
 import Users from "./Users";

@@ -6,13 +6,13 @@ const MainNav = () => {
     return (
 
         <nav className={style.mainNav}>
-            <div><NavLink className={style.active} to="/profile" >Profile</NavLink></div>
-            <div><NavLink to="/messages">Messages</NavLink></div>
-            <div><NavLink to="/news">News</NavLink></div>
-            <div><NavLink to="/music">Music</NavLink></div>
-            <div><NavLink to="/settings">Settings</NavLink></div>
-            <div><NavLink to="/users">Users</NavLink></div>
-            <div><NavLink to="/login">login</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/profile" >Profile</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/messages">Messages</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/news">News</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/music">Music</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/settings">Settings</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/users">Users</NavLink></div>
+            <div><NavLink activeClassName={style.active} to="/login">login</NavLink></div>
 
         </nav>
     );

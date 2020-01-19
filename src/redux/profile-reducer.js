@@ -17,7 +17,7 @@ let profileReducer = (state = initialState, action) => {
         return {...state, myPostsData: [...state.myPostsData, newPost]}
         // state.myPostsData.push(newPost);
         // state.newPostText = '';
-    } else if (action.type === SET_CURRENT_USER) {
+    } else if (action.type === SET_CURRENT_USER) {debugger
         return {...state, currentUser: action.currentUser}
     } else if (action.type === SET_STATUS) {
 
@@ -42,10 +42,10 @@ export const getStatusThunkCreator = (userId) => (dispatch) => {
         })
 }
 export const updateStatusThunkCreator = (status) => (dispatch) => {
-    debugger
+
     profileAPI.updateStatus(status).then(
         (response) => {
-            debugger
+
             if (response.data.resultCode === 0) {
                 dispatch(setStatusActionCreator(status))
             }

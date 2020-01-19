@@ -5,11 +5,11 @@ import {maxLengthCreator, required} from "../../../validators/validators";
 import {Textarea} from "../../common/FormsControl/FormsControl";
 
 
-const MyPosts = (props) => {
+const MyPosts = ({addPostCallback,...props}) => {
     let myPostDataElements = props.profilePage.myPostsData.map(item => <Post message={item.message}
                                                                              count={item.count}/>)
     const onSubmit = (formData) => {
-        props.addPostCallback(formData)
+        addPostCallback(formData)
     }
     return (
         <div>

@@ -89,10 +89,12 @@ let usersReducer = (state = initialState, action) => {
         }
 
     } else if (action.type === IS_FOLLOWING_IN_PROCESS) {
-        if (state.isFollowingInProcessUsers.some((item)=>item===action.userId))
-        { return{...state, isFollowingInProcessUsers:
-                [state.isFollowingInProcessUsers.filter((item)=>item!==action.userId)]}}
-       else return {
+        if (state.isFollowingInProcessUsers.some((item) => item === action.userId)) {
+            return {
+                ...state, isFollowingInProcessUsers:
+                    [state.isFollowingInProcessUsers.filter((item) => item !== action.userId)]
+            }
+        } else return {
             ...state, isFollowingInProcessUsers: [...state.isFollowingInProcessUsers, action.userId]
         }
 
@@ -115,33 +117,37 @@ export let setPagesOnScreenPrevCallback = () => ({type: SET_PAGES_ON_SCREEN_PREV
 export let changeIsFetchingCallback = () => ({type: IS_FETCHING_CHANGE})
 export let changeIsisFollowingInProcess = (userId) => ({type: IS_FOLLOWING_IN_PROCESS, userId})
 
-export let getUsersThunkCreator=(currentPage,pageSize)=>(dispatch)=>{
+export let getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
     usersAPI.getUsers(currentPage, pageSize).then((response) => {
         dispatch(setUsersCallback(response.data.items));
         dispatch(setTotalUsersCallback(response.data.totalCount));
         dispatch(setTotalPagesCallback())
-       dispatch(setCurrentPageCallback(currentPage))
+        dispatch(setCurrentPageCallback(currentPage))
         dispatch(changeIsFetchingCallback())
     })
 }
 
-export let followUserThunkCreator=(userId)=>(dispatch)=>{
-   dispatch(changeIsisFollowingInProcess(userId));
-    usersAPI.follow(userId).then(response => {
-        if (response.data.resultCode === 0) {
-            dispatch(followCallback(userId))
-            dispatch(changeIsisFollowingInProcess(userId))
-        }
-    })
-}
-export let unfollowUserThunkCreator=(userId)=>(dispatch)=>{
+export let followUserThunkCreator = (userId) => async (dispatch) => {
     dispatch(changeIsisFollowingInProcess(userId));
-    usersAPI.unfollow(userId).then(response => {
-        if (response.data.resultCode === 0) {
-            dispatch(unfollowCallback(userId))
-            dispatch(changeIsisFollowingInProcess(userId))
-        }
-    })
+    let response = await usersAPI.follow(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(followCallback(userId))
+        dispatch(changeIsisFollowingInProcess(userId))
+
+    }
 }
+export let unfollowUserThunkCreator = (userId) => async (dispatch) => {
+    dispatch(changeIsisFollowingInProcess(userId));
+    let response = await usersAPI.unfollow(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(unfollowCallback(userId))
+        dispatch(changeIsisFollowingInProcess(userId))
+    }
+
+}
+
+
+
+
 
 export default usersReducer

@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,21 +22,22 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo\ProfileStatus" />
       <recent name="C:\projects\reactApp\reactsn\src\redux" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo\ProfileStatus" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Login" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
@@ -59,12 +61,54 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.myPostData.length should be decremented">
+    <configuration name="New message is correctly added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-names>
+        <test-name value="New message is correctly added" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="length of posts should be increased " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-names>
+        <test-name value="length of posts should be increased " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="myPostData.length should be decremented" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/redux/profile-reducer.test.js" />
+      <test-names>
+        <test-name value="myPostData.length should be decremented" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="app-reducer.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/redux/app-reducer.js" working-dir="$PROJECT_DIR$/src/redux">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.myPostData.length should be decremented" />
+        <item itemvalue="Jest.New message is correctly added" />
+        <item itemvalue="Jest.length of posts should be increased " />
         <item itemvalue="Node.js.app-reducer.js" />
       </list>
     </recent_temporary>
@@ -155,7 +199,7 @@
       <workItem from="1581485676050" duration="4889000" />
       <workItem from="1581571842664" duration="1896000" />
       <workItem from="1581741824837" duration="617000" />
-      <workItem from="1581916927110" duration="3076000" />
+      <workItem from="1581916927110" duration="6510000" />
     </task>
     <servers />
   </component>

@@ -5,14 +5,14 @@ import {maxLengthCreator, required} from "../../../validators/validators";
 import {Textarea} from "../../common/FormsControl/FormsControl";
 
 
-const MyPosts = ({addPostCallback,...props}) => {
+const MyPosts = React.memo(({addPostCallback,...props}) => {
     let myPostDataElements = props.profilePage.myPostsData.map(item => <Post message={item.message}
                                                                              count={item.count}/>)
     const onSubmit = (formData) => {
         addPostCallback(formData)
     }
     return (
-        <div>
+        <div>{console.log("i was rendered")}
             <div>
                 My Posts
             </div>
@@ -22,7 +22,7 @@ const MyPosts = ({addPostCallback,...props}) => {
             </div>
         </div>
     );
-}
+})
 const maxLength10=maxLengthCreator(10)
 const AddPostForm = (props) => {
        return (
@@ -32,6 +32,7 @@ const AddPostForm = (props) => {
                 <button>Add Post</button>
             </div>
         </form>
+
     )
 }
 

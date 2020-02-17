@@ -3,6 +3,7 @@ import {profileAPI, usersAPI} from "../API/api";
 const ADD_POST = "ADD_POST";
 const SET_CURRENT_USER = 'SET_CURRENT_USER'
 const SET_STATUS = 'SET_STATUS'
+const DELETE_POST = 'DELETE_POST'
 
 let initialState = {
     myPostsData: [{id: 1, message: 'HI man. Give me your bag', count: '10'},
@@ -19,6 +20,8 @@ let profileReducer = (state = initialState, action) => {
         // state.newPostText = '';
     } else if (action.type === SET_CURRENT_USER) {
         return {...state, currentUser: action.currentUser}
+    } else if (action.type === DELETE_POST) {
+        return {...state, myPostsData: state.myPostsData.filter((item) => item.id !== action.id)}
     } else if (action.type === SET_STATUS) {
 
         return {...state, status: action.status}
@@ -26,6 +29,7 @@ let profileReducer = (state = initialState, action) => {
     return state
 }
 export let addPostActionCreator = (formData) => ({type: ADD_POST, formData})
+export let deletePost = (id) => ({type: DELETE_POST, id})
 export let setStatusActionCreator = (status) => ({type: SET_STATUS, status})
 export let setCurrentUserCallback = (currentUser) => ({type: SET_CURRENT_USER, currentUser})
 export let setCurrentUserThunkCreator = (userId) => (dispatch) => {

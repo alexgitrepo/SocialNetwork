@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Profile.module.css'
 import Preloader from "../../../common/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -20,7 +21,7 @@ const ProfileInfo = (props) => {
 
                     <img className={style.ava} src={props.profilePage.currentUser.photos.large}/>
                    <div className={style.profileStatus}>
-                    <ProfileStatus isOwner={props.isOwner} updateStatus={props.updateStatus}  status={props.profilePage.status}/>
+                    <ProfileStatusWithHooks isOwner={props.isOwner} updateStatus={props.updateStatus}  status={props.profilePage.status}/>
                    </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import {getAuthStatusThunkCreator} from "./auth-reducer";
 
-const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
+const INITIALIZED_SUCCESS = "app/INITIALIZED_SUCCESS";
 
 let initialState = {initialized: false}
 let appReducer = (state = initialState, action) => {
@@ -15,7 +15,8 @@ let appReducer = (state = initialState, action) => {
 export const initializeSuccess=()=>({type:INITIALIZED_SUCCESS})
 export const initializeApp=()=>(dispatch)=>{
     let promise= dispatch(getAuthStatusThunkCreator())
-    promise.then(()=>{dispatch(initializeSuccess())})
+    promise.then(()=>{
+        dispatch(initializeSuccess())})
 
 }
 export default appReducer

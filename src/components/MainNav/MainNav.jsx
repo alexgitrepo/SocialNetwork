@@ -12,7 +12,6 @@ const MainNav = () => {
             <div><NavLink activeClassName={style.active} to="/music">Music</NavLink></div>
             <div><NavLink activeClassName={style.active} to="/settings">Settings</NavLink></div>
             <div><NavLink activeClassName={style.active} to="/users">Users</NavLink></div>
-            <div><NavLink activeClassName={style.active} to="/login">login</NavLink></div>
 
         </nav>
     );

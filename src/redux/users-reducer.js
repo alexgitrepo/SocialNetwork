@@ -1,15 +1,16 @@
 import {usersAPI} from "../API/api";
+import {updateObjectInArray} from "../utis/object-helpers";
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
-const SET_USERS = "SET_USERS";
-const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
-const SET_PAGES_ON_SCREEN_NEXT = 'SET_PAGES_ON_SCREEN_NEXT'
-const SET_PAGES_ON_SCREEN_PREV = 'SET_PAGES_ON_SCREEN_PREV'
-const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE'
-const IS_FOLLOWING_IN_PROCESS = 'IS_FOLLOWING_IN_PROCESS'
+const FOLLOW = "users/FOLLOW";
+const UNFOLLOW = "users/UNFOLLOW";
+const SET_USERS = "users/SET_USERS";
+const SET_TOTAL_USERS = 'users/SET_TOTAL_USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE'
+const SET_TOTAL_PAGES = 'users/SET_TOTAL_PAGES'
+const SET_PAGES_ON_SCREEN_NEXT = 'users/SET_PAGES_ON_SCREEN_NEXT'
+const SET_PAGES_ON_SCREEN_PREV = 'users/SET_PAGES_ON_SCREEN_PREV'
+const IS_FETCHING_CHANGE = 'users/IS_FETCHING_CHANGE'
+const IS_FOLLOWING_IN_PROCESS = 'users/IS_FOLLOWING_IN_PROCESS'
 let initialState = {
     users: [],
     totalUsers: 0,
@@ -28,27 +29,14 @@ let usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW:
             return {
-                ...state, users: state.users.map((item) => {
-                        if (item.id === action.userId) {
-                            return {...item, followed: true}
-                        } else {
-                            return item
-                        }
-                    }
-                )
+                ...state, users: updateObjectInArray(state.users, action.userId, "id", {followed: true})
+
             }
         case UNFOLLOW : {
             return {
-                ...state, users: state.users.map((item) => {
-                    if (item.id === action.userId) {
-                        return {...item, followed: false}
+                ...state, users: updateObjectInArray(state.users, action.userId, "id", {followed: false})
+                }
 
-                    } else {
-                        return item
-                    }
-
-                })
-            }
         }
         case SET_USERS: {
             return {
@@ -89,7 +77,8 @@ let usersReducer = (state = initialState, action) => {
                 ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
             }
         }
-        case IS_FETCHING_CHANGE: {debugger
+        case IS_FETCHING_CHANGE: {
+            debugger
 
             let newIsFetching = !state.isFetching
 

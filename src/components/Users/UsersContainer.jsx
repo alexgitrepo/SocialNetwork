@@ -1,34 +1,27 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {
-    changeIsFetchingCallback,
-    changeIsisFollowingInProcess,
-    followUserThunkCreator,
-    getUsersThunkCreator,
-    setCurrentPageCallback,
-    setPagesOnScreenNextCallback,
-    setPagesOnScreenPrevCallback,
-    setTotalPagesCallback,
-    setTotalUsersCallback,
-    setUsersCallback,
-    unfollowUserThunkCreator
-} from "../../redux/users-reducer";
+import {followUserThunkCreator, getUsersThunkCreator, unfollowUserThunkCreator} from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader";
 
 let mapStateToProps = (state) => {
-    return {usersPage: state.UsersPage}
+    return {
+        usersPage: state.UsersPage,
+        totalUsersCount: state.UsersPage.totalUsers,
+        currentPage: state.UsersPage.currentPage,
+        pageSize: state.UsersPage.pageSize
+    }
 
 }
 
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.usersPage.currentPage, this.props.usersPage.usersPerPage)
+        this.props.onPageChange(this.props.usersPage.currentPage, this.props.usersPage.pageSize)
     }
 
     getNewUsers = (item) => {
-        this.props.getUsers(item, this.props.usersPage.usersPerPage)
+        this.props.onPageChange(item, this.props.usersPage.pageSize)
     }
 
 
@@ -38,11 +31,14 @@ class UsersContainer extends React.Component {
 
                 {this.props.usersPage.isFetching ? <Preloader/> : null}
                 <Users getNewUsers={this.getNewUsers} usersPage={this.props.usersPage}
-                       setPagesOnScreenNextCallback={this.props.setPagesOnScreenNextCallback}
-                       setPagesOnScreenPrevCallback={this.props.setPagesOnScreenPrevCallback}
                        isFollowingInProcessUsers={this.props.usersPage.isFollowingInProcessUsers}
                        followUser={this.props.followUser}
-                       unfollowUser={this.props.unfollowUser}/>
+                       unfollowUser={this.props.unfollowUser}
+                       onPageChange={this.props.onPageChange}
+                       totalUsersCount={this.props.totalUsersCount}
+                       currentPage={this.props.currentPage}
+                       pageSize={this.props.pageSize}
+                />
             </div>
         )
 
@@ -53,15 +49,8 @@ class UsersContainer extends React.Component {
 
 
 export default connect(mapStateToProps, {
-    setUsersCallback,
-    setTotalUsersCallback,
-    setCurrentPageCallback,
-    setTotalPagesCallback,
-    changeIsisFollowingInProcess,
-    setPagesOnScreenNextCallback,
-    setPagesOnScreenPrevCallback,
-    changeIsFetchingCallback,
-    getUsers: getUsersThunkCreator,
+
+    onPageChange: getUsersThunkCreator,
     followUser: followUserThunkCreator,
     unfollowUser: unfollowUserThunkCreator
 })(UsersContainer)

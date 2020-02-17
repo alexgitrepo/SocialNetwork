@@ -6,19 +6,15 @@ const UNFOLLOW = "users/UNFOLLOW";
 const SET_USERS = "users/SET_USERS";
 const SET_TOTAL_USERS = 'users/SET_TOTAL_USERS';
 const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE'
-const SET_TOTAL_PAGES = 'users/SET_TOTAL_PAGES'
-const SET_PAGES_ON_SCREEN_NEXT = 'users/SET_PAGES_ON_SCREEN_NEXT'
-const SET_PAGES_ON_SCREEN_PREV = 'users/SET_PAGES_ON_SCREEN_PREV'
+
+
 const IS_FETCHING_CHANGE = 'users/IS_FETCHING_CHANGE'
 const IS_FOLLOWING_IN_PROCESS = 'users/IS_FOLLOWING_IN_PROCESS'
 let initialState = {
     users: [],
     totalUsers: 0,
     currentPage: 1,
-    usersPerPage: 7,
-    totalPages: 1,
-    pagesOnScreenTo: 5,
-    pagesOnScreenFrom: 1,
+    pageSize: 10,
     isFetching: false,
     isFollowingInProcess: false,
     isFollowingInProcessUsers: []
@@ -35,7 +31,7 @@ let usersReducer = (state = initialState, action) => {
         case UNFOLLOW : {
             return {
                 ...state, users: updateObjectInArray(state.users, action.userId, "id", {followed: false})
-                }
+            }
 
         }
         case SET_USERS: {
@@ -56,29 +52,8 @@ let usersReducer = (state = initialState, action) => {
             }
 
         }
-        case SET_TOTAL_PAGES: {
-            let pagesCount = Math.ceil(state.totalUsers / state.usersPerPage);
-
-            return {
-                ...state, totalPages: pagesCount
-            }
-        }
-        case SET_PAGES_ON_SCREEN_NEXT: {
-            let pagesCountFrom = state.pagesOnScreenFrom += 5
-            let pagesCountTo = state.pagesOnScreenTo += 5
-            return {
-                ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
-            }
-        }
-        case SET_PAGES_ON_SCREEN_PREV: {
-            let pagesCountFrom = state.pagesOnScreenFrom -= 5
-            let pagesCountTo = state.pagesOnScreenTo -= 5
-            return {
-                ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
-            }
-        }
         case IS_FETCHING_CHANGE: {
-            debugger
+
 
             let newIsFetching = !state.isFetching
 
@@ -106,9 +81,6 @@ export let unfollowCallback = (id) => ({type: UNFOLLOW, userId: id})
 export let setUsersCallback = (users) => ({type: SET_USERS, users: users})
 export let setTotalUsersCallback = (count) => ({type: SET_TOTAL_USERS, count: count})
 export let setCurrentPageCallback = (page) => ({type: SET_CURRENT_PAGE, page: page})
-export let setTotalPagesCallback = () => ({type: SET_TOTAL_PAGES})
-export let setPagesOnScreenNextCallback = () => ({type: SET_PAGES_ON_SCREEN_NEXT})
-export let setPagesOnScreenPrevCallback = () => ({type: SET_PAGES_ON_SCREEN_PREV})
 export let changeIsFetchingCallback = () => ({type: IS_FETCHING_CHANGE})
 export let changeIsisFollowingInProcess = (userId) => ({type: IS_FOLLOWING_IN_PROCESS, userId})
 
@@ -118,7 +90,6 @@ export let getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) =>
     if (response) {
         dispatch(setUsersCallback(response.data.items));
         dispatch(setTotalUsersCallback(response.data.totalCount));
-        dispatch(setTotalPagesCallback())
         dispatch(setCurrentPageCallback(currentPage))
         dispatch(changeIsFetchingCallback())
     }

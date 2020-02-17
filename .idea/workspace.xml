@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5c55b4-aa77-4488-b77e-f262841fe90c" name="Default Changelist" comment="Added new components(split jsx code in profile.jsx).&#10;Now we have new tags (such as MyPosts and Post).&#10;Made some changes in css files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/users-reducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/MyPosts/ProfileInfo/ProfileStatus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/common" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,18 +36,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\reactApp\reactsn\src\components\common" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo\ProfileStatus" />
+      <recent name="C:\projects\reactApp\reactsn\src\redux" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Login" />
+      <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\reactApp\reactsn\src\components\Dialogs\Dialogs" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
       <recent name="C:\projects\reactApp\reactsn\src\components\MainNav" />
       <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile\MyPosts\ProfileInfo\ProfileStatus" />
-      <recent name="C:\projects\reactApp\reactsn\src\redux" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Login" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Header" />
-      <recent name="C:\projects\reactApp\reactsn\src\components\Profile" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -231,7 +229,8 @@
       <workItem from="1581571842664" duration="1896000" />
       <workItem from="1581741824837" duration="617000" />
       <workItem from="1581916927110" duration="12016000" />
-      <workItem from="1581937203231" duration="5582000" />
+      <workItem from="1581937203231" duration="6702000" />
+      <workItem from="1581955520656" duration="5070000" />
     </task>
     <servers />
   </component>

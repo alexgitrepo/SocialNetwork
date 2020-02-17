@@ -7,7 +7,7 @@ import {sendLoginDataRequest} from "../../redux/auth-reducer";
 import style from '../common/FormsControl/FormsControl.module.css'
 
 const Login = (props)=>{
-    const onSubmit=({email,password,rememberMe})=>{debugger
+    const onSubmit=({email,password,rememberMe})=>{
         props.sendLoginDataRequest(email,password,rememberMe)
     }
 
@@ -16,7 +16,7 @@ const Login = (props)=>{
         <LoginFormRedux onSubmit={onSubmit}/>
     </div>
 }
-const LoginForm=(props)=>{debugger
+const LoginForm=(props)=>{
     return (
                 <form onSubmit={props.handleSubmit}>
             <div>
@@ -36,6 +36,8 @@ const LoginForm=(props)=>{debugger
     )
 }
 const LoginFormRedux=reduxForm({form:'login'})(LoginForm)
+
+
 export default connect(null,{sendLoginDataRequest})(Login)
 
 

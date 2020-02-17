@@ -8,7 +8,6 @@ import withAuthRedirect from "../../hoc/withAuthRedirect";
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,
-        isAuth: state.auth.userInfo.isLogin
     }
 }
 

@@ -14,15 +14,15 @@ export const Textarea=({input,meta,...props})=>{
         </div>
     )
 }
-export const Input=({input,meta,...props})=>{
-    const hasError=meta.touched&&meta.error
+export const Input=({input,meta:{touched,error},...props})=>{
+    const hasError=touched&&error
     return(
         <div className={style.formControl +" "+(hasError?style.error:'')}>
             <div>
                 <input {...input} {...props}  />
             </div>
             <div>
-                {hasError&&<span>{meta.error}</span>}
+                {hasError&&<span>{error}</span>}
             </div>
         </div>
     )

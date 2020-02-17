@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
 
                     <img className={style.ava} src={props.profilePage.currentUser.photos.large}/>
                    <div className={style.profileStatus}>
-                    <ProfileStatus updateStatus={props.updateStatus}  status={props.profilePage.status}/>
+                    <ProfileStatus isOwner={props.isOwner} updateStatus={props.updateStatus}  status={props.profilePage.status}/>
                    </div>
                 </div>
             </div>

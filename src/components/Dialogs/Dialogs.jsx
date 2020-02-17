@@ -7,7 +7,7 @@ import {Textarea} from "../common/FormsControl/FormsControl";
 import {maxLengthCreator, required} from "../../validators/validators";
 
 
-const Dialogs = (props) => {
+const  Dialogs = (props) => {
     let dialogsDataElements = props.dialogsPage.dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>)
     let messageDataElements = props.dialogsPage.messageData.map(item => <Message message={item.message}/>)
 

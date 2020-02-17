@@ -7,7 +7,7 @@ const Profile = (props) => {
 
     return (
         <main className={style.mainContent}>
-            <ProfileInfo updateStatus={props.updateStatus} profilePage={props.profilePage}/>
+            <ProfileInfo isOwner={props.isOwner} updateStatus={props.updateStatus} profilePage={props.profilePage}/>
             <MyPostsContainer />
         </main>
 

@@ -17,7 +17,7 @@ let profileReducer = (state = initialState, action) => {
         return {...state, myPostsData: [...state.myPostsData, newPost]}
         // state.myPostsData.push(newPost);
         // state.newPostText = '';
-    } else if (action.type === SET_CURRENT_USER) {debugger
+    } else if (action.type === SET_CURRENT_USER) {
         return {...state, currentUser: action.currentUser}
     } else if (action.type === SET_STATUS) {
 

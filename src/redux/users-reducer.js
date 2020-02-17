@@ -25,82 +25,88 @@ let initialState = {
 
 
 let usersReducer = (state = initialState, action) => {
-    if (action.type === FOLLOW) {
-        return {
-            ...state, users: state.users.map((item) => {
+    switch (action.type) {
+        case FOLLOW:
+            return {
+                ...state, users: state.users.map((item) => {
+                        if (item.id === action.userId) {
+                            return {...item, followed: true}
+                        } else {
+                            return item
+                        }
+                    }
+                )
+            }
+        case UNFOLLOW : {
+            return {
+                ...state, users: state.users.map((item) => {
                     if (item.id === action.userId) {
-                        return {...item, followed: true}
+                        return {...item, followed: false}
+
                     } else {
                         return item
                     }
-                }
-            )
-        }
-    } else if (action.type === UNFOLLOW) {
-        return {
-            ...state, users: state.users.map((item) => {
-                if (item.id === action.userId) {
-                    return {...item, followed: false}
 
-                } else {
-                    return item
-                }
-
-            })
-        }
-    } else if (action.type === SET_USERS) {
-        return {
-            ...state, users: [...action.users]
-        }
-
-    } else if (action.type === SET_TOTAL_USERS) {
-        return {
-            ...state, totalUsers: action.count
-        }
-
-    } else if (action.type === SET_CURRENT_PAGE) {
-        return {
-            ...state, currentPage: action.page
-        }
-
-    } else if (action.type === SET_TOTAL_PAGES) {
-        let pagesCount = Math.ceil(state.totalUsers / state.usersPerPage);
-
-        return {
-            ...state, totalPages: pagesCount
-        }
-    } else if (action.type === SET_PAGES_ON_SCREEN_NEXT) {
-        let pagesCountFrom = state.pagesOnScreenFrom += 5
-        let pagesCountTo = state.pagesOnScreenTo += 5
-        return {
-            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
-        }
-    } else if (action.type === SET_PAGES_ON_SCREEN_PREV) {
-        let pagesCountFrom = state.pagesOnScreenFrom -= 5
-        let pagesCountTo = state.pagesOnScreenTo -= 5
-        return {
-            ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
-        }
-    } else if (action.type === IS_FETCHING_CHANGE) {
-        if (state.isFetching) {
-            return {
-                ...state, isFetching: false
+                })
             }
         }
-
-    } else if (action.type === IS_FOLLOWING_IN_PROCESS) {
-        if (state.isFollowingInProcessUsers.some((item) => item === action.userId)) {
+        case SET_USERS: {
             return {
-                ...state, isFollowingInProcessUsers:
-                    [state.isFollowingInProcessUsers.filter((item) => item !== action.userId)]
+                ...state, users: [...action.users]
             }
-        } else return {
-            ...state, isFollowingInProcessUsers: [...state.isFollowingInProcessUsers, action.userId]
-        }
 
-    } else {
-        return {
-            ...state, isFetching: true
+        }
+        case SET_TOTAL_USERS: {
+            return {
+                ...state, totalUsers: action.count
+            }
+
+        }
+        case SET_CURRENT_PAGE: {
+            return {
+                ...state, currentPage: action.page
+            }
+
+        }
+        case SET_TOTAL_PAGES: {
+            let pagesCount = Math.ceil(state.totalUsers / state.usersPerPage);
+
+            return {
+                ...state, totalPages: pagesCount
+            }
+        }
+        case SET_PAGES_ON_SCREEN_NEXT: {
+            let pagesCountFrom = state.pagesOnScreenFrom += 5
+            let pagesCountTo = state.pagesOnScreenTo += 5
+            return {
+                ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
+            }
+        }
+        case SET_PAGES_ON_SCREEN_PREV: {
+            let pagesCountFrom = state.pagesOnScreenFrom -= 5
+            let pagesCountTo = state.pagesOnScreenTo -= 5
+            return {
+                ...state, pagesOnScreenFrom: pagesCountFrom, pagesOnScreenTo: pagesCountTo
+            }
+        }
+        case IS_FETCHING_CHANGE: {debugger
+
+            let newIsFetching = !state.isFetching
+
+            return {
+                ...state, isFetching: newIsFetching
+            }
+        }
+        case IS_FOLLOWING_IN_PROCESS: {
+            if (state.isFollowingInProcessUsers.some((item) => item === action.userId)) {
+                return {
+                    ...state, isFollowingInProcessUsers:
+                        [state.isFollowingInProcessUsers.filter((item) => item !== action.userId)]
+                }
+            } else return {
+                ...state, isFollowingInProcessUsers: [...state.isFollowingInProcessUsers, action.userId]
+            }
+
         }
     }
     return state
@@ -117,37 +123,38 @@ export let setPagesOnScreenPrevCallback = () => ({type: SET_PAGES_ON_SCREEN_PREV
 export let changeIsFetchingCallback = () => ({type: IS_FETCHING_CHANGE})
 export let changeIsisFollowingInProcess = (userId) => ({type: IS_FOLLOWING_IN_PROCESS, userId})
 
-export let getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
-    usersAPI.getUsers(currentPage, pageSize).then((response) => {
+export let getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => {
+    dispatch(changeIsFetchingCallback())
+    let response = await usersAPI.getUsers(currentPage, pageSize)
+    if (response) {
         dispatch(setUsersCallback(response.data.items));
         dispatch(setTotalUsersCallback(response.data.totalCount));
         dispatch(setTotalPagesCallback())
         dispatch(setCurrentPageCallback(currentPage))
         dispatch(changeIsFetchingCallback())
-    })
+    }
+
+}
+
+let followUserHelpFunction = async (userId, dispatch, apiMethod, actionCreator) => {
+    dispatch(changeIsisFollowingInProcess(userId));
+    let response = await apiMethod(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(actionCreator(userId))
+        dispatch(changeIsisFollowingInProcess(userId))
+
+    }
 }
 
 export let followUserThunkCreator = (userId) => async (dispatch) => {
-    dispatch(changeIsisFollowingInProcess(userId));
-    let response = await usersAPI.follow(userId)
-    if (response.data.resultCode === 0) {
-        dispatch(followCallback(userId))
-        dispatch(changeIsisFollowingInProcess(userId))
-
-    }
+    let apiMethod = usersAPI.follow.bind(usersAPI);
+    followUserHelpFunction(userId, dispatch, apiMethod, followCallback)
 }
+
 export let unfollowUserThunkCreator = (userId) => async (dispatch) => {
-    dispatch(changeIsisFollowingInProcess(userId));
-    let response = await usersAPI.unfollow(userId)
-    if (response.data.resultCode === 0) {
-        dispatch(unfollowCallback(userId))
-        dispatch(changeIsisFollowingInProcess(userId))
-    }
-
+    let apiMethod = usersAPI.unfollow.bind(usersAPI);
+    followUserHelpFunction(userId, dispatch, apiMethod, unfollowCallback)
 }
-
-
-
 
 
 export default usersReducer

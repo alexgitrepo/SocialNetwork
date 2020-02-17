@@ -24,12 +24,10 @@ let mapStateToProps = (state) => {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.changeIsFetchingCallback();
         this.props.getUsers(this.props.usersPage.currentPage, this.props.usersPage.usersPerPage)
     }
 
     getNewUsers = (item) => {
-        this.props.changeIsFetchingCallback()
         this.props.getUsers(item, this.props.usersPage.usersPerPage)
     }
 

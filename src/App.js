@@ -23,37 +23,39 @@ class App extends React.Component {
     }
 
     render() {
-         if (!this.props.isInitiolized){ return <Preloader/>}
-         return (<div className="main-wrapper">
-                <div className="grid-wrapper">
-
-                    <HeaderContainer/>
-                    <MainNav/>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <ProfileContainer/>} path="/profile/:userId?"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <DialogsContainer/>} path="/messages"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <UsersContainer/>} path="/users"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={News} path="/news"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={Music} path="/music"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route component={Settings} path="/settings"/>
-                    </div>
-                    <div className="app-wrapper-content">
-                        <Route render={() => <Login/>} path="/login"/>
-                    </div>
-                </div>
-            </div>)
+        if (!this.props.isInitiolized) {
+            return <Preloader/>
         }
+        return (<div className="main-wrapper">
+            <div className="grid-wrapper">
+
+                <HeaderContainer/>
+                <MainNav/>
+                <div className="app-wrapper-content">
+                    <Route render={() => <ProfileContainer/>} path="/profile/:userId?"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route render={() => <DialogsContainer/>} path="/messages"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route render={() => <UsersContainer/>} path="/users"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={News} path="/news"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={Music} path="/music"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route component={Settings} path="/settings"/>
+                </div>
+                <div className="app-wrapper-content">
+                    <Route render={() => <Login/>} path="/login"/>
+                </div>
+            </div>
+        </div>)
     }
+}
 
 let mapDispatchToProps = (dispatch) => {
     return {
@@ -68,8 +70,9 @@ let mapStateToProps = (state) => {
         isInitiolized: state.app.initialized
     }
 }
-let AppContainer=compose(withRouter,connect(mapStateToProps, mapDispatchToProps))(App)
-const SamuraiJsApp=(props)=>{return <BrowserRouter>
+let AppContainer = compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(App)
+const SamuraiJsApp = (props) => {
+    return <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>

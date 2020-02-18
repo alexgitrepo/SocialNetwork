@@ -59,7 +59,7 @@ export const sendLogoutRequest = () => async (dispatch) => {
 
 
 export const getAuthStatusThunkCreator = () => (dispatch) => {
-    return  authAPI.getAuthStatus().then(
+    return authAPI.getAuthStatus().then(
         (response) => {
             if (response.data.resultCode === 0) {
                 const {email, id, login} = response.data.data

@@ -3,3 +3,8 @@
     padding: 20px;
 }
 .mainImage{ width:100%}
+.profileCurrentData{}
+.error{
+    color:red;
+    border:solid 2px red
+}

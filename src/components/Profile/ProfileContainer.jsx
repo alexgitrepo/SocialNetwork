@@ -1,7 +1,12 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatusThunkCreator, setCurrentUserThunkCreator, updateStatusThunkCreator} from "../../redux/profile-reducer";
+import {
+    changeProfileDataThunkCreator,
+    getStatusThunkCreator, savePhoto,
+    setCurrentUserThunkCreator,
+    updateStatusThunkCreator
+} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -18,9 +23,20 @@ class ProfileContainer extends React.Component {
         this.props.setCurrentUser(userId)
         this.props.getStatus(userId)
     }
+    componentDidUpdate(prevProps, prevState) {
+        let userId
+        if (this.props.match.params.userId!==prevProps.match.params.userId) {
+            if (this.props.isAuth) {
+                userId = this.props.currentUserId
+                this.props.setCurrentUser(userId)
+                this.props.getStatus(userId)
+            }
+        }
+
+    }
 
     render() {
-        return <Profile updateStatus={this.props.updateStatus} profilePage={this.props.profilePage} isOwner={!this.props.match.params.userId}/>
+        return <Profile savePhoto={this.props.savePhoto} changeProfile={this.props.changeProfile} updateStatus={this.props.updateStatus} profilePage={this.props.profilePage} isOwner={!this.props.match.params.userId}/>
     }
 }
 
@@ -31,14 +47,11 @@ let mapStateToProps = (state) => {
         currentUserId: getCurrentUserId(state)
     }
 }
-// let ProfileToLogin = withAuthRedirect(ProfileContainer)
-// let WithUrlDataContainerComponent = withRouter(ProfileToLogin)
-//
-// export default connect(mapStateToProps, {setCurrentUser: setCurrentUserThunkCreator})(WithUrlDataContainerComponent);
-
 export default compose(connect(mapStateToProps, {
+    changeProfile:changeProfileDataThunkCreator,
         setCurrentUser: setCurrentUserThunkCreator,
         getStatus: getStatusThunkCreator,
-        updateStatus: updateStatusThunkCreator
+        updateStatus: updateStatusThunkCreator,
+        savePhoto
     }), withRouter
     , withAuthRedirect)(ProfileContainer)

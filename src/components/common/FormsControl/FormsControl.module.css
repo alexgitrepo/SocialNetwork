@@ -8,3 +8,6 @@
 .summaryError{
     border:red solid 1px
 }
+.captcha {
+    width:200px
+}

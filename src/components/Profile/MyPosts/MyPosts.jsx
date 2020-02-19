@@ -12,7 +12,7 @@ const MyPosts = React.memo(({addPostCallback,...props}) => {
         addPostCallback(formData)
     }
     return (
-        <div>{console.log("i was rendered")}
+        <div>
             <div>
                 My Posts
             </div>

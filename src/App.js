@@ -55,7 +55,7 @@ class App extends React.Component {
                     <Route render={() => <Login/>} path="/login"/>
                 </div>
                 <div className="app-wrapper-content">
-                    <Route render={() => <ProfileContainer/>} path="/"/>
+                    <Route render={() => <ProfileContainer/>} path="/" exact/>
                 </div>
             </div>
         </div>)

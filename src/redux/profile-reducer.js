@@ -5,7 +5,7 @@ const ADD_POST = "profile/ADD_POST";
 const SET_CURRENT_USER = 'profile/SET_CURRENT_USER'
 const SET_STATUS = 'profile/SET_STATUS'
 const DELETE_POST = 'profile/DELETE_POST'
-const SAVE_PHOTO_SUCCESS='profile/SAVE_PHOTO_SUCCESS'
+const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS'
 let initialState = {
     myPostsData: [{id: 1, message: 'HI man. Give me your bag', count: '10'},
         {id: 2, message: 'What did you say? Crazy mother fucker!', count: '20'},
@@ -26,10 +26,9 @@ let profileReducer = (state = initialState, action) => {
     } else if (action.type === SET_STATUS) {
 
         return {...state, status: action.status}
-    }
-    else if (action.type === SAVE_PHOTO_SUCCESS) {
+    } else if (action.type === SAVE_PHOTO_SUCCESS) {
 
-        return {...state, currentUser:{...state.currentUser,photos:action.photos}}
+        return {...state, currentUser: {...state.currentUser, photos: action.photos}}
     }
     return state
 }
@@ -58,13 +57,14 @@ export const updateStatusThunkCreator = (status) => (dispatch) => {
             }
         })
 }
-export const savePhoto=(file)=>async(dispatch)=>{
+export const savePhoto = (file) => async (dispatch) => {
     let response = await profileAPI.savePhoto(file)
-if (response.data.resultCode===0){debugger
-    dispatch(savePhotoSuccess(response.data.data.photos))
+    if (response.data.resultCode === 0) {
+        debugger
+        dispatch(savePhotoSuccess(response.data.data.photos))
+    }
 }
-}
-export const savePhotoSuccess=(photos)=>({type:SAVE_PHOTO_SUCCESS,photos})
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 export const changeProfileDataThunkCreator = (newProfileData, userId) => async (dispatch) => {
     let response = await profileAPI.changeProfileData(newProfileData)

@@ -1,6 +1,7 @@
 .mainContent {
-    background-color: coral;
+   background-color: white;
     padding: 20px;
+    border-radius: 5px;
 }
 .mainImage{ width:100%}
 .profileCurrentData{}

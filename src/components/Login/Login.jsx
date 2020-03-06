@@ -13,16 +13,18 @@ const Login = (props) => {
     }
     if (props.isAuth) {
         return <Redirect to='/profile'/>
-    } else return <div className={style.login}>
-        <b>LOGIN</b>
+    } else return <div className={style.loginWrapper}>
+    <div className={style.login}>
+        <h3>LOGIN</h3>
         <LoginFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
+    </div>
     </div>
 }
 const LoginForm = (props) => {
 
     return (
 
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit} className={style.registrationForm}>
             {createField([required], Input, "email", "input","email")}
             {createField([required], Input, "password", "password","password")}
             {createField([], "input", "rememberMe", "checkbox","","remember me")}

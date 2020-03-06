@@ -9,9 +9,9 @@ class HeaderContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Header logout={this.props.logout} auth={this.props.auth}/>
-            </div>)
+            </React.Fragment>)
     }
 }
 

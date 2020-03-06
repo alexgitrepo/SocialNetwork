@@ -41,10 +41,12 @@ export const setLoginUserDataActionCreator = (email, id, login, isLogin) => ({
 
 export const setCaptchaUrl=(url)=>({type:SET_CAPTCHA_URL,url})
 export const sendLoginDataRequest = (email, password, rememberMe,captcha) => async (dispatch) => {
-    debugger
+
     let request = await authAPI.login(email, password, rememberMe,captcha)
+
     if (request.data.resultCode === 0) {
         let response = await authAPI.getAuthStatus();
+        debugger
         if (response.data.resultCode === 0) {
             const {email, id, login} = response.data.data
             dispatch(setLoginUserDataActionCreator(email, id, login, true))

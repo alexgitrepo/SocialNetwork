@@ -1,8 +1,40 @@
 .mainNav {
-    background-color: lightsalmon;
     grid-area: n;
     padding: 20px;
+      margin-bottom: 18px;
+    background: #fdfdfd;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border: 1px solid #ede9e9
 }
-a {text-decoration: none;
-color: white}
-.active {color:red}
+div a {
+    display: inline-block;
+    margin-bottom: 20px;
+    position: relative;
+}
+a {
+    font-size: 14px;
+    text-transform: capitalize;
+    display: inline-block;
+    position: relative;
+    font-weight: 400;
+    color: #797979;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #0056b3;
+    outline: none;
+    -webkit-text-decoration: none;
+    -moz-text-decoration: none;
+    -ms-text-decoration: none;
+    -o-text-decoration: none;
+    text-decoration: none;
+}
+.active {
+border-bottom:2px solid #0056b3 }

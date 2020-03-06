@@ -10,32 +10,27 @@ const User = (props) => {
     }
 
 
-
     let unfollow = () => {
         props.unfollowUser(props.userId)
     }
 
     return (
-        <div>
-            <div>
+        <div className={style.user}>
+            <div className={style.user__name}>
                 {props.name}
             </div>
             <div>
                 <NavLink to={'/profile/' + props.userId}>
-
                     <img src={props.img.small === null ? userPhoto : props.img.small} className={style.userPhoto}
                          alt='Тут ава будет'/>
                 </NavLink>
             </div>
             <div>
-                {props.country}
-            </div>
-            <div>
-                {props.city}
-            </div>
-            <div>
-                {props.isFollowed === true ? <button disabled={props.isFollowingInProcessUsers.some((item)=>item==props.userId)} onClick={unfollow}>UnFollow</button> :
-                    <button disabled={props.isFollowingInProcessUsers.some((item)=>item==props.userId)} onClick={follow}>follow</button>}
+                {props.isFollowed === true ?
+                    <button disabled={props.isFollowingInProcessUsers.some((item) => item == props.userId)}
+                            onClick={unfollow}>UnFollow</button> :
+                    <button disabled={props.isFollowingInProcessUsers.some((item) => item == props.userId)}
+                            onClick={follow}>follow</button>}
             </div>
         </div>
 

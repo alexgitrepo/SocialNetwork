@@ -4,7 +4,8 @@
 }
 
 .mainContent {
-    background-color: azure
+    background-color: white;
+    border-radius: 5px;
 }
 
 .dialogs {

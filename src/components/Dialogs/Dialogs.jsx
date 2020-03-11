@@ -2,14 +2,14 @@ import React from 'react';
 import style from './Dialogs.module.css'
 import DialogItem from "./Dialog/DialogItem";
 import Message from "./Message/Message";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm,reset} from "redux-form";
 import {Textarea} from "../common/FormsControl/FormsControl";
 import {maxLengthCreator, required} from "../../validators/validators";
 
 
 const  Dialogs = (props) => {
-    let dialogsDataElements = props.dialogsPage.dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>)
-    let messageDataElements = props.dialogsPage.messageData.map(item => <Message message={item.message}/>)
+    let dialogsDataElements = props.dialogsPage.dialogsData.map((item,i) => <DialogItem key={i} name={item.name} id={item.id}/>)
+    let messageDataElements = props.dialogsPage.messageData.map((item,i) => <Message key={i} message={item.message}/>)
 
     const onSubmit=(formData)=>{
         console.log(formData)
@@ -43,7 +43,7 @@ const AddMessageForm = (props) => {
     </form>)
 
 }
-
-const AddMessageFormReduxForm = reduxForm({form: "AddMessageForm"})(AddMessageForm)
-
+const afterSubmit = (result, dispatch) =>
+    dispatch(reset("AddMessageForm"))
+const AddMessageFormReduxForm = reduxForm({form: "AddMessageForm",onSubmitSuccess: afterSubmit})(AddMessageForm)
 export default Dialogs;

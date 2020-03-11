@@ -8,7 +8,7 @@ const DELETE_POST = 'profile/DELETE_POST'
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS'
 let initialState = {
     myPostsData: [{id: 1, message: 'HI man. Give me your bag', count: '10'},
-        {id: 2, message: 'What did you say? Crazy mother fucker!', count: '20'},
+        {id: 2, message: 'What did you say?!', count: '20'},
         {id: 3, message: 'Mm. Goodbye', count: '0'}],
     currentUser: null,
     status: 'S'

@@ -29,7 +29,7 @@ font-weight: bold;
     background: #fff none repeat scroll 0 0;
     box-shadow: 0 0 35px #e2e2e2;
     padding: 35px 40px;
-    width: 400px;
+    max-width: 400px;
     margin: 20px;
 
 }
@@ -78,4 +78,8 @@ font-weight: bold;
 }
 .login h3 {
     margin:0;
+}
+.login p:first-of-type{
+    color: rgba(79,147,206,0.82);
+    font-weight: bold;
 }

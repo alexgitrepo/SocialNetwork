@@ -3,12 +3,12 @@ import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
     changeProfileDataThunkCreator,
-    getStatusThunkCreator, savePhoto,
+    getStatusThunkCreator,
+    savePhoto,
     setCurrentUserThunkCreator,
     updateStatusThunkCreator
 } from "../../redux/profile-reducer";
 import {Redirect, withRouter} from "react-router-dom";
-import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {getCurrentUserId, getIsAuth, getProfilePage} from "../../redux/profile-selectors";
 

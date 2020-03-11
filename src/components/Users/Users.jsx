@@ -3,16 +3,18 @@ import User from "./User/User";
 import Paginator from "../common/Paginator";
 
 
-const Users = (props) => { debugger
+const Users = (props) => {
     let myUsersDataElements = props.usersPage.users.map(item =>
-        <User name={item.name}
-              lookingForAjob={item.lookingForAJob}
-              userId={item.id}
-              isFollowed={item.followed} img={item.photos}
-              followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
-              isFollowingInProcessUsers={props.isFollowingInProcessUsers}
-              followUser={props.followUser}
-              unfollowUser={props.unfollowUser}
+        <User
+            key={item.id}
+            name={item.name}
+            lookingForAjob={item.lookingForAJob}
+            userId={item.id}
+            isFollowed={item.followed} img={item.photos}
+            followCallback={props.followCallback} unfollowCallback={props.unfollowCallback}
+            isFollowingInProcessUsers={props.isFollowingInProcessUsers}
+            followUser={props.followUser}
+            unfollowUser={props.unfollowUser}
         />)
     return (
         <div>

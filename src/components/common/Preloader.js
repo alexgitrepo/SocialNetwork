@@ -1,5 +1,5 @@
 import React from 'react';
-import preloader from '../../assets/images/preloader.gif'
+import preloader from '../../assets/images/index.infinity-rotate-cycle-loader.svg'
 
 const Preloader = (props)=> {
 return (

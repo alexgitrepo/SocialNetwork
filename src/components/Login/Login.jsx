@@ -8,16 +8,20 @@ import style from '../common/FormsControl/FormsControl.module.css'
 import {Redirect} from "react-router-dom";
 
 const Login = (props) => {
-    const onSubmit = ({email, password, rememberMe,captcha}) => {debugger
-        props.sendLoginDataRequest(email, password, rememberMe,captcha)
+    const onSubmit = ({email, password, rememberMe, captcha}) => {
+        debugger
+        props.sendLoginDataRequest(email, password, rememberMe, captcha)
     }
     if (props.isAuth) {
         return <Redirect to='/profile'/>
     } else return <div className={style.loginWrapper}>
-    <div className={style.login}>
-        <h3>LOGIN</h3>
-        <LoginFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
-    </div>
+        <div className={style.login}>
+            <h3>LOGIN</h3>
+            <p>Credentials for testing</p>
+            <p>Email: free@samuraijs.com</p>
+            <p>Password: free</p>
+            <LoginFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
+        </div>
     </div>
 }
 const LoginForm = (props) => {
@@ -25,11 +29,11 @@ const LoginForm = (props) => {
     return (
 
         <form onSubmit={props.handleSubmit} className={style.registrationForm}>
-            {createField([required], Input, "email", "input","email")}
-            {createField([required], Input, "password", "password","password")}
-            {createField([], "input", "rememberMe", "checkbox","","remember me")}
-            {props.captchaUrl&&<div><p>Enter captcha</p>
-                {createField([required], Input, "captcha", "input","captcha")}
+            {createField([required], Input, "email", "input", "email")}
+            {createField([required], Input, "password", "password", "password")}
+            {createField([], "input", "rememberMe", "checkbox", "", "remember me")}
+            {props.captchaUrl && <div><p>Enter captcha</p>
+                {createField([required], Input, "captcha", "input", "captcha")}
                 <img className={style.captcha} src={props.captchaUrl}/></div>}
             <button>Login</button>
             {props.error && <div className={style.summaryError}>
@@ -42,7 +46,7 @@ const LoginFormRedux = reduxForm({form: 'login'})(LoginForm)
 let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.userInfo.isLogin,
-        captchaUrl:state.auth.captchaUrl
+        captchaUrl: state.auth.captchaUrl
     }
 }
 

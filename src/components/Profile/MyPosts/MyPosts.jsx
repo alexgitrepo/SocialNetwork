@@ -1,12 +1,12 @@
 import React from 'react';
 import Post from "./Post/Post";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import {maxLengthCreator, required} from "../../../validators/validators";
 import {Textarea} from "../../common/FormsControl/FormsControl";
 
 
 const MyPosts = React.memo(({addPostCallback,...props}) => {
-    let myPostDataElements = props.profilePage.myPostsData.map(item => <Post message={item.message}
+    let myPostDataElements = props.profilePage.myPostsData.map((item,i) => <Post key={i} message={item.message}
                                                                              count={item.count}/>)
     const onSubmit = (formData) => {
         addPostCallback(formData)
@@ -35,7 +35,8 @@ const AddPostForm = (props) => {
 
     )
 }
-
-const AddPostFormReduxForm = reduxForm({form: "addPost"})(AddPostForm)
+const afterSubmit = (result, dispatch) =>
+    dispatch(reset("addPost"))
+const AddPostFormReduxForm = reduxForm({form: "addPost",onSubmitSuccess: afterSubmit})(AddPostForm)
 
 export default MyPosts;
